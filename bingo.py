@@ -40,3 +40,21 @@ def verificar_vencedor(cartelas, sorteadas):
         if numeros_cartela.issubset(set(sorteadas)):
             return i + 1  # Retorna o número da cartela vencedora
     return None
+
+def main():
+    print("Bem-vindo ao Simulador de Bingo!")
+    modo = input("Escolha o modo de jogo (rápido/demorado): ").strip().lower()
+    while modo not in ['rápido', 'demorado']:
+        modo = input("Modo inválido! Escolha entre 'rápido' ou 'demorado': ").strip().lower()
+    
+    cartelas = gerar_cartela(modo)
+    sorteadas = []
+    
+    print("\nCartelas geradas:\n")
+    for i, cartela in enumerate(cartelas):
+        print(f"Jogador {i + 1}:")
+        imprimir_cartela(cartela, sorteadas)
+    
+    print("Iniciando o sorteio...\n")
+    
+    vencedor = None
