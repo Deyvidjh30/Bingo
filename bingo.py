@@ -17,3 +17,10 @@ def gerar_cartela(modo):
         cartelas.append(cartela)
     
     return cartelas
+
+def imprimir_cartela(cartela, sorteadas):
+    """Exibe a cartela formatada, marcando as dezenas sorteadas."""
+    print("Cartela:")
+    for linha in zip(*cartela):
+        print(" ".join(f"({num:2})" if num in sorteadas else f" {num:2} " for num in linha))
+    print()
