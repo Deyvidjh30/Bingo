@@ -32,3 +32,11 @@ def sortear_dezena(sorteadas):
         if dezena not in sorteadas:
             sorteadas.append(dezena)
             return dezena
+
+def verificar_vencedor(cartelas, sorteadas):
+    """Verifica se alguma cartela tem todas as dezenas sorteadas."""
+    for i, cartela in enumerate(cartelas):
+        numeros_cartela = {num for coluna in cartela for num in coluna}
+        if numeros_cartela.issubset(set(sorteadas)):
+            return i + 1  # Retorna o número da cartela vencedora
+    return None
