@@ -24,3 +24,11 @@ def imprimir_cartela(cartela, sorteadas):
     for linha in zip(*cartela):
         print(" ".join(f"({num:2})" if num in sorteadas else f" {num:2} " for num in linha))
     print()
+
+def sortear_dezena(sorteadas):
+    """Sorteia uma nova dezena que ainda não tenha sido sorteada."""
+    while True:
+        dezena = random.randint(1, 30)
+        if dezena not in sorteadas:
+            sorteadas.append(dezena)
+            return dezena
