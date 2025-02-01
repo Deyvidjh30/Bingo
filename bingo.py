@@ -58,3 +58,23 @@ def main():
     print("Iniciando o sorteio...\n")
     
     vencedor = None
+    while not vencedor:
+        input("Pressione ENTER para sortear a próxima dezena...")
+        
+        dezena = sortear_dezena(sorteadas)
+        print(f"Dezena sorteada: {dezena}")
+        print(f"Dezenas sorteadas até agora: {sorted(sorteadas)}\n")
+        
+        for i, cartela in enumerate(cartelas):
+            print(f"Jogador {i + 1}:")
+            imprimir_cartela(cartela, sorteadas)
+        
+        vencedor = verificar_vencedor(cartelas, sorteadas)
+        if vencedor:
+            print(f"Parabéns! O Jogador {vencedor} venceu!\n")
+            break
+    
+    print("Fim da sessão de Bingo!")
+
+if __name__ == "__main__":
+    main()
